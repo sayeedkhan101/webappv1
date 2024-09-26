@@ -1,0 +1,253 @@
+@font-face {
+    font-family: 'cursive';
+    src: url(../components/fonts/AlexBrush-Regular.ttf);
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#homepage-container {
+    overflow-y: auto;
+    height: 100vh; /* Make sure the page takes up full height */
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Home Container */
+.home-container {
+    width: 100%; /* Ensure it covers the full width of the browser */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    
+}
+
+/* Header Section */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Increase padding for visibility */
+    background: rgba(0, 0, 0, 0.7); /* Make it slightly more visible */
+    position: sticky; /* Makes the header sticky */
+    top: 0; /* Sticks to the top of the viewport */
+    z-index: 1000; /* Ensures it stays above other content */
+    transition: background 0.3s, padding 0.3s;
+    backdrop-filter: blur(5px); /* No blur initially */
+}
+
+/* Transparent effect on scroll */
+.header-section.scrolled {
+    background: rgba(0, 0, 0, 0.8); /* More visible when scrolled */
+    padding: 5px; /* Reduce padding when scrolled */
+    backdrop-filter: blur(10px); /* Apply blur when scrolled */
+}
+
+
+
+@media (max-width: 768px) {
+    .header-section {
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
+    
+    .nav li {
+        margin-right: 40px; /* Adjust margins for smaller screens */
+    }
+}
+
+.logo img {
+    width: 70px;
+    height: 70px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+.nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav li {
+    margin-right: 80px;
+    font-family: lato;
+    font-size: 18px; /* Corrected font size */
+    transition: transform 0.3s ease;
+
+}
+
+.nav li:hover {
+    transform: scale(1.1); /* Magnify the entire <li> to give room for the link to expand */
+}
+
+.nav a {
+    position: relative;
+    padding: 10px 0;
+    color: #e22d39;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    background: #9c141c;
+    transition: width 0.4s ease;
+    bottom: 1px;
+    left: 0;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.nav a:hover {
+    color: #fffaf6;
+    transform: scale(1.1); /* Magnify the hovered link */
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Prevent content spill */
+}
+
+.hero-overlay {
+    position: absolute;
+    font-family: 'cursive';
+    font-size: 40px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Ensure text is above the video */
+    color: white;
+    padding: 20px;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;  /* Ensure video is below the text */
+}
+
+.highlight {
+    color: #9c141c; /* You can change this to any color you prefer */
+    font-weight: bold; /* Optional: make it bold */
+}
+
+
+/* About Section */
+.about-section {
+    padding: 40px;
+    background-color: transparent; /* Remove background */
+    color: #801818;
+    font-family: 'cursive';
+    font-size: 24px;
+}
+
+.about-section p {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 24px;
+}
+
+/* Image Container */
+.image-container {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 300px;
+    gap: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.left-image {
+    width: 70%; /* adjust the width as needed */
+    border-radius: 10px;
+}
+
+.top-image {
+    width: 100%; /* make the images take full width */
+    height: 50%; /* adjust the height as needed */
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.bottom-image {
+    width: 100%; /* make the images take full width */
+    height: 40%; /* adjust the height as needed */
+    border-radius: 10px;
+}
+
+/* Features Section */
+.features-section {
+    padding: 40px;
+    background-color: transparent; /* Remove background */
+}
+
+.hookah-lounge {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.hookah-lounge h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #9c141c;
+}
+
+.hookah-lounge p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #797878;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-overlay {
+        font-size: 30px; /* Scale font size down */
+    }
+    .logo img {
+        width: 50px;
+        height: 50px;
+    }
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-container {
+        flex-direction: column;
+        width: 100%;
+    }
+}
